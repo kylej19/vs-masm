@@ -7,21 +7,12 @@ INCLUDE irvine32.inc
 
 .data                               ;data
 ;----------------------------------------
-ivarb BYTE 80h
-ivarl WORD 8000h
-ivarq DWORD 80000000h
 
-ovarb BYTE ?
-ovarl WORD ?
-ovarq DWORD ?
 
 .code                               ;code
 ;----------------------------------------
 main PROC
-    xor eax,eax
-    mov al,ivarb
-    imul al
-
+    
 
     exit
 main ENDP

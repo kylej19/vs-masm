@@ -7,21 +7,33 @@ INCLUDE irvine32.inc
 
 .data                               ;data
 ;----------------------------------------
-ivarb BYTE 80h
-ivarl WORD 8000h
-ivarq DWORD 80000000h
-
-ovarb BYTE ?
-ovarl WORD ?
-ovarq DWORD ?
+date    WORD    266ah           ; 0010 0110 0110 1010 b
 
 .code                               ;code
 ;----------------------------------------
 main PROC
-    xor eax,eax
-    mov al,ivarb
-    imul al
+    mov eax,0
 
+    ;DAY
+    mov ax,date
+    and ax,1fh          ; 1 1111 b
+
+    call WriteDec
+    call Crlf
+
+    ; MONTH
+    mov ax,date
+    shr ax,5
+    and ax,0fh          ; 1111 b
+
+    call WriteDec
+    call Crlf
+
+    mov ax,date
+    shr ax,9
+
+    call WriteDec
+    call Crlf
 
     exit
 main ENDP

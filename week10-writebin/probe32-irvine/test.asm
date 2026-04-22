@@ -7,22 +7,27 @@ INCLUDE irvine32.inc
 
 .data                               ;data
 ;----------------------------------------
-ivarb BYTE 80h
-ivarl WORD 8000h
-ivarq DWORD 80000000h
-
-ovarb BYTE ?
-ovarl WORD ?
-ovarq DWORD ?
+buffer BYTE 33 DUP(0)
 
 .code                               ;code
 ;----------------------------------------
 main PROC
-    xor eax,eax
-    mov al,ivarb
-    imul al
+    mov eax,7fffffffh
+    mov ecx,20h
+    mov esi,OFFSET buffer
+L1:    
+    shl eax,1
+    mov BYTE PTR [esi],'0'
+    jnc L2
+    mov BYTE PTR [esi],'1'
+L2:
+    inc esi
+    loop L1
 
+    mov edx,OFFSET buffer
+    call WriteString
 
+    call Crlf
     exit
 main ENDP
 
