@@ -123,6 +123,7 @@ E2:
     exit
 main ENDP
 
+;             Exercise #5 (cont.)
 ;----------------------------------------
 ; packed2asc - converts 4 byte packed decimal to ascii and displays
 ; input= edx:packed decimal binary doubleword,
