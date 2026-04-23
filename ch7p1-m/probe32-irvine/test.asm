@@ -92,8 +92,8 @@ E2:
     call writestring                ;display the title
     mov edx,offset msg4
     call writestring                ;display a message
-    cdq                             ;sign-extend the upper half of our dividend
     mov eax,dVal2                   ;place dVal2 into eax
+    cdq                             ;sign-extend the upper half of our dividend
     idiv dVal3                      ;divide by dVal3
     mov ebx,dVal1                   ;mov dVal1 into ebx
     add ebx,dVal2                   ;add dVal2 to ebx
